@@ -11,7 +11,7 @@ public class Pager {
 
 	// 注意：构建函数重载与this的使用
 	public Pager(int total, int pageNo) {
-		this(total, pageNo, 1);
+		this(total, pageNo, 3);
 	}
 
 	public Pager(int total, int pageNo, int pageSize) {
