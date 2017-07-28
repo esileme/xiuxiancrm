@@ -11,6 +11,8 @@ public interface UserDao {
 
 	User getUserByName(String username);
 
+	User getUserById(int userId);
+
 	int getTotalCount(String keyword, String field);
 
 	List<User> getUserByKeywordFieldPager(String keyword, String field, Pager pager);
@@ -18,6 +20,10 @@ public interface UserDao {
 	List<Role> getAllRole();
 
 	Boolean addUser(User user);
+
+	Boolean updateUser(User user);
+
+	Boolean deleteUser(User user);
 
 	@Deprecated
 	List<User> getAllUsers();

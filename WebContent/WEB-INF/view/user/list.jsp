@@ -59,7 +59,7 @@
                 	<fmt:formatDate value="${user.updateTime}" type="both" pattern="MM-dd HH:mm"/>
                 </td>
                 <td>
-                	<a class="fa fa-pencil" title="编辑" href="<c:url value="/user/update?id=" />${user.userId}"></a>
+                	<a class="fa fa-pencil" title="编辑" href="<c:url value="/user/update?name=" />${user.username}"></a>
                 	&nbsp;&nbsp;
                 	<a class="fa fa-remove" title="删除" href="javascript:confirmDelete(${user.userId})"></a>
                 </td>

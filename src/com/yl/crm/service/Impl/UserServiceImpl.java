@@ -43,4 +43,21 @@ public class UserServiceImpl implements UserService {
 		return userDao.addUser(user);
 	}
 
+	@Override
+	public Boolean updateUser(User user) {
+		return userDao.updateUser(user);
+	}
+
+	@Override
+	public User getUserById(int userId) {
+		// TODO Auto-generated method stub
+		return userDao.getUserById(userId);
+	}
+
+	@Override
+	public Boolean deleteUser(User user) {
+		// TODO Auto-generated method stub
+		return userDao.deleteUser(user);
+	}
+
 }

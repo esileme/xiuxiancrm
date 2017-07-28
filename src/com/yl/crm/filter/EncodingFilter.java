@@ -17,7 +17,7 @@ public class EncodingFilter implements Filter {
 	@Override
 	public void destroy() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -25,17 +25,15 @@ public class EncodingFilter implements Filter {
 			throws IOException, ServletException {
 		HttpServletRequest request2 = (HttpServletRequest) request;
 		EncodingRequest request3 = new EncodingRequest(request2);
-		 
+
 		chain.doFilter(request3, response);
-	
+
 	}
 
 	@Override
 	public void init(FilterConfig arg0) throws ServletException {
 		// TODO Auto-generated method stub
-		
+
 	}
 
-	
-	
 }

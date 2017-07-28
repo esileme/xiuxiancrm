@@ -1,4 +1,4 @@
-package com.yl.crm.servlet;
+package com.yl.crm.servlet.user;
 
 import java.io.IOException;
 import java.util.List;

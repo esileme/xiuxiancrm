@@ -1,6 +1,8 @@
 package com.yl.crm.util;
 
 import java.lang.reflect.Field;
+import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,7 +12,7 @@ public class BeanUtil {
 	public static Object parseRequestToBean(HttpServletRequest request, Class<?> clz) {
 		Object obj = null;
 		// key 请求参参数名 value 请求参数值
-		//{name:["zhangsa"],gender:["男"],birthDay:["2017-09-08"]}
+		// {name:["zhangsa"],gender:["男"],birthDay:["2017-09-08"]}
 		Map<String, String[]> paramaterMap = request.getParameterMap();
 		try {
 			obj = clz.newInstance();
@@ -30,6 +32,10 @@ public class BeanUtil {
 				} else if (filedTypeName.equals("Date")) {
 
 					field.set(obj, DateUtil.stringToDate(values[0]));
+				} else if (filedTypeName.equals("Timestamp")) {
+					Date date = DateUtil.stringToDate(values[0]);
+					field.set(obj, new Timestamp(date.getTime()));
+
 				} else {
 					//
 					field.set(obj, values[0]);

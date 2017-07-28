@@ -15,4 +15,28 @@ public class RoleServiceImp implements RoleService {
 		return roleDao.getAllRoles();
 	}
 
+	@Override
+	public boolean addRole(Role role) {
+		// TODO Auto-generated method stub
+		return roleDao.addRole(role);
+	}
+
+	@Override
+	public Role getRoleById(Integer id) {
+		// TODO Auto-generated method stub
+		return roleDao.getRoleById(id);
+	}
+
+	@Override
+	public boolean deleteRole(Role role) {
+		// TODO Auto-generated method stub
+		return roleDao.deleteRole(role);
+	}
+
+	@Override
+	public boolean updateRole(Role role) {
+		// TODO Auto-generated method stub
+		return roleDao.updateRole(role);
+	}
+
 }

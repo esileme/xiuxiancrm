@@ -110,8 +110,8 @@ public class UserDaoImpl implements UserDao {
 
 	public static void main(String[] args) {
 		UserDaoImpl impl = new UserDaoImpl();
-		List<User> users = impl.getAllUsers();
-		System.out.println(users.size());
+		// List<User> users = impl.getAllUsers();
+		// System.out.println(users.size());
 
 	}
 
@@ -156,6 +156,82 @@ public class UserDaoImpl implements UserDao {
 		}
 
 		return i > 0;
+	}
+
+	@Override
+	public Boolean updateUser(User user) {
+
+		System.out.println(user.toString());
+		Connection connection = DBUtil.getConnection();
+		String sql = " UPDATE user,department,role SET user.password =?,"
+				+ "department.department_name=?,role.role_name=?,user.is_male = ?,user.mobile = ?,"
+				+ "user.address=?,user.age=?,user.tel=?,user.id_num=?,user.email=?,user.qq=?,user.hobby=?,"
+				+ "user.education = ?,user.card_num=?,user.nation=?,user.marry=?,user.remark=? "
+				+ "WHERE user.user_id=? "
+				+ "AND department.department_id = user.department_id AND user.role_id = role.role_id ";
+
+		int isUpdate = -1;
+		try {
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setObject(1, user.getPassword());
+			ps.setObject(2, user.getDepartmentName());
+			ps.setObject(3, user.getRoleName());
+			ps.setObject(4, user.getIsMale());
+			ps.setObject(5, user.getMobile());
+			ps.setObject(6, user.getAddress());
+			ps.setObject(7, user.getAge());
+			ps.setObject(8, user.getTel());
+			ps.setObject(9, user.getIdNum());
+			ps.setObject(10, user.getEmail());
+			ps.setObject(11, user.getQq());
+			ps.setObject(12, user.getHobby());
+			ps.setObject(13, user.getEducation());
+			ps.setObject(14, user.getCardNum());
+			ps.setObject(15, user.getNation());
+			ps.setObject(16, user.getMarry());
+			ps.setObject(17, user.getRemark());
+			ps.setObject(18, user.getUserId());
+			System.out.println("update的SQL:" + sql);
+			isUpdate = ps.executeUpdate();
+			System.out.println(isUpdate);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return isUpdate >= 0;
+	}
+
+	@Override
+	public User getUserById(int userId) {
+		String sql = "SELECT a.*,d.department_name FROM department d RIGHT JOIN "
+				+ "(SELECT r.role_name,u.* FROM role r RIGHT JOIN (SELECT * FROM user)u "
+				+ "ON(u.role_id = r.role_id))a " + "ON(d.department_id = a.department_id) " + "WHERE a.user_id = ?";
+		Object[] paramters = { userId };
+		List<User> users = (List<User>) DBUtil.queryForList(sql, paramters, User.class);
+
+		if (users.size() == 0) {
+			return null;
+		} else {
+			return users.get(0);
+		}
+	}
+
+	@Override
+	public Boolean deleteUser(User user) {
+		System.out.println(user.toString());
+		Connection connection = DBUtil.getConnection();
+		String sql = "update user set status = 3 where user_id = ? ";
+
+		int isUpdate = -1;
+		try {
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setInt(1, user.getUserId());
+			isUpdate = ps.executeUpdate();
+			System.out.println(isUpdate);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return isUpdate > 0;
 	}
 
 }

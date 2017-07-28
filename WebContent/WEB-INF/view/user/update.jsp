@@ -15,7 +15,7 @@
 			<table class="form-table">
 				<tr>
 					<td>用户名</td>
-					<td class="control">
+					<td class="control" >
 						${ user.username }
 					</td>
 					<td>密码</td>

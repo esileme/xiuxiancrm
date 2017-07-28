@@ -9,4 +9,24 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>UserDetailServlet</display-name>
+    <servlet-name>UserDetailServlet</servlet-name>
+    <servlet-class>com.yl.crm.servlet.UserDetailServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserDetailServlet</servlet-name>
+    <url-pattern>/UserDetailServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>NoticeListServlet</display-name>
+    <servlet-name>NoticeListServlet</servlet-name>
+    <servlet-class>com.yl.crm.servlet.notice.NoticeListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NoticeListServlet</servlet-name>
+    <url-pattern>/NoticeListServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

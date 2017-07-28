@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div class="box">
-		<h3>更新用户</h3>
+		<h3>查看用户</h3>
 		<form action="<c:url value="/user/update" />" method="post">
 			<table class="form-table">
 				<tr>

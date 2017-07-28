@@ -9,6 +9,8 @@ public interface UserService {
 	
 	User getUserByName(String username);
 	
+	User getUserById(int userId);
+	
 	int getTotalCount(String keyword, String field);
 	
 	@Deprecated
@@ -17,5 +19,9 @@ public interface UserService {
 	List<User> getUserByKeywordFieldPager(String keyword, String field, Pager pager);
 	
 	Boolean addUser(User user);
+	
+	Boolean updateUser(User user);
+	
+	Boolean deleteUser(User user);
 	
 }
