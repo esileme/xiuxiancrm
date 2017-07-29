@@ -9,10 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.yl.crm.dao.DepartmentDao;
-import com.yl.crm.dao.Impl.DepartmentDaoImp;
-import com.yl.crm.dao.Impl.NoticeDaoImp;
-import com.yl.crm.model.Department;
 import com.yl.crm.model.Notice;
 import com.yl.crm.service.NoticeService;
 import com.yl.crm.service.Impl.NoticeServiceImp;
@@ -40,13 +36,18 @@ public class NoticeListServlet extends HttpServlet {
 			System.out.println("搜索域:" + searchField);
 		}
 
+
 		// 给分页设置数据
-		int total = noticeService.getTotalCount(keyword, searchField);
+		int total = noticeService.getTotalCount(keyword, searchField, request);
+		//int total = notices.size();
 		Pager pager = new Pager(total, pageNo);
 
 		System.out.println(pager.toString());
 
-		List<Notice> notices = noticeService.getAllNoticeByKeywordSearchFieldPageno(keyword, searchField, pager);
+		List<Notice> notices = noticeService.getAllNoticeByKeywordSearchFieldPageno(keyword, searchField, pager,
+				request);
+		
+		
 
 		request.setAttribute("list", notices);
 		request.setAttribute("keyword", keyword);

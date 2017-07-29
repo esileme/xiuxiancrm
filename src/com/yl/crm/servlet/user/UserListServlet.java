@@ -16,6 +16,8 @@ import com.yl.crm.util.Pager;
 
 @WebServlet("/user/list")
 public class UserListServlet extends HttpServlet {
+	
+	private static final long serialVersionUID = 1L;
 	private UserService userService = new UserServiceImpl();
 
 	@Override

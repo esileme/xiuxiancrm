@@ -2,7 +2,6 @@ package com.yl.crm.dao;
 
 import java.util.List;
 
-import com.yl.crm.model.Department;
 import com.yl.crm.model.Role;
 import com.yl.crm.model.User;
 import com.yl.crm.util.Pager;
