@@ -47,7 +47,13 @@
                 <td>${ notice.noticeId }</td>
                 <td>${ notice.createrName }</td>
                 <td>${ notice.subject }</td>
-                <td>全部</td>
+                <td class="control" >
+               	 	<select name="receiveId" disabled="disabled">
+						<option value="0">全部</option>
+						<option value="1">部门1</option>
+						<option value="2">部门2</option>
+					</select>
+				</td>
                 <td>
                 	<a title="查看详情" href="<c:url value="/notice/detail?id=" />${notice.noticeId}" >
                 	<c:choose> 

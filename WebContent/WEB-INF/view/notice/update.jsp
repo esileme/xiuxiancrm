@@ -31,8 +31,8 @@
 						<input type="text" class="p100" name="subject" value="${ notice.subject }" placeholder="填写公告主题">
 					</td>
 					<td>通知范围</td>
-					<td class="control" name="receiveId">
-						<select>
+					<td class="control" >
+						<select name="receiveId" >
 							<option value="0">全部</option>
 							<option value="1">部门1</option>
 							<option value="2">部门2</option>
