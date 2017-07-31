@@ -24,4 +24,29 @@ public class NoticeServiceImp implements NoticeService {
 		return noticeDao.getAllNoticeByKeywordSearchFieldPageno(keyword, searchField, pager, request);
 	}
 
+	@Override
+	public boolean addNotice(Notice notice) {
+		// TODO Auto-generated method stub
+		return noticeDao.addNotice(notice);
+	}
+
+	@Override
+	public Notice findNoticeById(int id) {
+		// TODO Auto-generated method stub
+		return noticeDao.findNoticeById(id);
+	}
+
+	@Override
+	public boolean updateNotice(Notice notice) {
+		// TODO Auto-generated method stub
+		return noticeDao.updateNotice(notice);
+	}
+
+	@Override
+	public Boolean deleteUser(Notice notice) {
+		// TODO Auto-generated method stub
+		return noticeDao.deleteUser(notice);
+	}
+	
+
 }

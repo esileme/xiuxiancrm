@@ -9,15 +9,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.yl.crm.model.Department;
 import com.yl.crm.model.Notice;
+import com.yl.crm.model.User;
+import com.yl.crm.service.DepartmentService;
 import com.yl.crm.service.NoticeService;
+import com.yl.crm.service.UserService;
+import com.yl.crm.service.Impl.DepartmentServiceImp;
 import com.yl.crm.service.Impl.NoticeServiceImp;
+import com.yl.crm.service.Impl.UserServiceImpl;
 import com.yl.crm.util.Pager;
 
 @WebServlet("/notice/list")
 public class NoticeListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private NoticeService noticeService = new NoticeServiceImp();
+	private DepartmentService departmentService = new DepartmentServiceImp();
+	private UserService userService = new UserServiceImpl();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -46,7 +54,16 @@ public class NoticeListServlet extends HttpServlet {
 		List<Notice> notices = noticeService.getAllNoticeByKeywordSearchFieldPageno(keyword, searchField, pager,
 				request);
 
+		List<Department> depts = departmentService.getAllDepartment();
+		// System.err.println(depts.get(1));
+		
+		List<User> users = userService.getAllUsers();
+
+		request.setAttribute("users", users);
+		request.setAttribute("depts", depts);
 		request.setAttribute("list", notices);
+		// System.err.println(notices.get(2));
+		
 		request.setAttribute("keyword", keyword);
 		request.setAttribute("field", searchField);
 		request.setAttribute("pager", pager);

@@ -31,9 +31,12 @@
 					<td>通知范围</td>
 					<td class="control">
 						<select name="receiveId">
+						
 							<option value="0">全部</option>
-							<option value="1">部门1</option>
-							<option value="2">部门2</option>
+							 <c:forEach var="department" items="${ departments }">
+								<option value="${ department.departmentId }">${ department.departmentName }</option>
+							</c:forEach>
+
 						</select>
 					</td>
 				</tr>

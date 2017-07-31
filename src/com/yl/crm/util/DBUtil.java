@@ -50,7 +50,7 @@ public class DBUtil {
 			for (int i = 0; i < paramters.length; i++) {
 				ps.setObject(i + 1, paramters[i]);
 			}
-
+			System.err.println(ps.toString());
 			System.out.println(sql);
 			// 执行查询，返回一个结果集对象
 			rs = ps.executeQuery();

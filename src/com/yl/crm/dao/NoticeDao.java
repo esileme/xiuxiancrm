@@ -13,5 +13,13 @@ public interface NoticeDao {
 
 	List<Notice> getAllNoticeByKeywordSearchFieldPageno(String keyword, String searchField, Pager pager,
 			HttpServletRequest request);
+	
+	boolean addNotice(Notice notice);
+
+	Notice findNoticeById(int id);
+
+	boolean updateNotice(Notice notice);
+
+	Boolean deleteUser(Notice notice);
 
 }
